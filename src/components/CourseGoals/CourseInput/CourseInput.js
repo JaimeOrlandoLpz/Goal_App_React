@@ -28,10 +28,11 @@ const CourseInput = props => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
-        {/* If entered string isn't valid the text will turn red, otherwise it will be black */}
-        <label style = {{color: !isValid ? 'red' : 'black'}}>Course Goal</label>
-        <input style = {{borderColor: !isValid ? 'red' : 'black', background: !isValid ? 'salmon' : 'cyan'}} type="text" onChange={goalInputChangeHandler} />
+      {/* Setting a dynamic css class to thge div depending the value of the isValid variable */ }
+      <div className={`form-control ${!isValid ? 'invalid' : ''}`}>
+       
+        <label>Course Goal</label>
+        <input type="text" onChange={goalInputChangeHandler} />
       </div>
       <Button type="submit">Add Goal</Button>
     </form>
